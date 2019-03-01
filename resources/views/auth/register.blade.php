@@ -37,6 +37,21 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                        <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+ 
+                            <div class="col-md-6">
+                            <select name="role" class="form-control" >
+                                <option value="mentor">Mentor</option>
+                                <option value="student">Student</option>
+                            </select> 
+                            @if ($errors->has('role'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

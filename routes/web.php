@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('admin')->group(function() {
+    Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('auth.adminLogin');
+    Route::post('/', 'Auth\AdminLoginController@login')->name('auth.adminLogin');
+    Route::get('/dashboard', 'AdminController@index')->name('admin.home');
+});
+
+    Route::get('/mentor', 'MentorController@index')->name('mentor.home')->middleware('auth','mentor');
+
+
+    Route::get('/student', 'StudentController@index')->name('student.home')->middleware('auth','student');
